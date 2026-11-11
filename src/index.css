@@ -1,0 +1,517 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Fredoka', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom Beak Chatter & Perry Animations */
+@keyframes beak-chatter-rapid {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  30% {
+    transform: rotate(9deg) translateY(4px);
+  }
+  65% {
+    transform: rotate(1.5deg) translateY(0.5px);
+  }
+  85% {
+    transform: rotate(6deg) translateY(2.5px);
+  }
+}
+
+@keyframes beak-chatter-steady {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  40% {
+    transform: rotate(8.5deg) translateY(3.5px);
+  }
+}
+
+@keyframes head-chatter-vibe {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-0.75px) rotate(-0.25deg);
+  }
+}
+
+@keyframes tail-wag-idle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-4.5deg);
+  }
+}
+
+@keyframes tail-wag-active {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes body-breathe {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.008, 0.992);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.03);
+  }
+}
+
+.animate-beak-rapid {
+  animation: beak-chatter-rapid 0.115s infinite ease-in-out;
+  transform-origin: 190px 248px;
+}
+
+.animate-beak-steady {
+  animation: beak-chatter-steady 0.13s infinite cubic-bezier(0.2, 0.8, 0.4, 1);
+  transform-origin: 190px 248px;
+}
+
+.animate-head-vibe {
+  animation: head-chatter-vibe 0.115s infinite ease-in-out;
+  transform-origin: center center;
+}
+
+.animate-tail-idle {
+  animation: tail-wag-idle 2.4s infinite ease-in-out;
+  transform-origin: 320px 310px;
+}
+
+.animate-tail-active {
+  animation: tail-wag-active 0.8s infinite ease-in-out;
+  transform-origin: 320px 310px;
+}
+
+.animate-body-breathe {
+  animation: body-breathe 3.6s infinite ease-in-out;
+  transform-origin: center bottom;
+}
+
+.animate-float-badge {
+  animation: float-gentle 4s infinite ease-in-out;
+}
+
+/* 1-Minute Special Movements */
+
+/* 1. Fedora Tip */
+@keyframes fedora-tip-motion {
+  0% { transform: rotate(0deg) translateY(0px); }
+  25% { transform: rotate(-14deg) translateY(-10px); }
+  70% { transform: rotate(-14deg) translateY(-10px); }
+  100% { transform: rotate(0deg) translateY(0px); }
+}
+
+@keyframes arm-hat-tip {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-32px, -150px) rotate(-52deg); }
+  70% { transform: translate(-32px, -150px) rotate(-52deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-fedora-tip {
+  animation: fedora-tip-motion 3.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 210px 140px;
+}
+
+.animate-arm-hat-tip {
+  animation: arm-hat-tip 3.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 296px 290px;
+}
+
+/* 2. Suspicious Double-Take Look-Around */
+@keyframes double-take-head {
+  0% { transform: translateX(0px) rotate(0deg); }
+  15% { transform: translateX(-16px) rotate(-3deg); }
+  45% { transform: translateX(-16px) rotate(-3deg); }
+  55% { transform: translateX(16px) rotate(3deg); }
+  85% { transform: translateX(16px) rotate(3deg); }
+  100% { transform: translateX(0px) rotate(0deg); }
+}
+
+.animate-double-take {
+  animation: double-take-head 4.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transform-origin: center center;
+}
+
+/* 3. Tail Thump / Slap */
+@keyframes tail-thump-slap {
+  0%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(-18deg); }
+  28% { transform: rotate(10deg); }
+  40% { transform: rotate(-18deg); }
+  52% { transform: rotate(10deg); }
+  65% { transform: rotate(-16deg); }
+  78% { transform: rotate(8deg); }
+  90% { transform: rotate(-6deg); }
+}
+
+@keyframes body-thump-bounce {
+  0%, 100% { transform: translateY(0px); }
+  28%, 52%, 78% { transform: translateY(-6px); }
+  35%, 60%, 85% { transform: translateY(0px); }
+}
+
+.animate-tail-thump {
+  animation: tail-thump-slap 3.5s ease-in-out forwards;
+  transform-origin: 320px 310px;
+}
+
+.animate-body-thump {
+  animation: body-thump-bounce 3.5s ease-in-out forwards;
+  transform-origin: center bottom;
+}
+
+/* 4. Agent Watch / Communicator Check */
+@keyframes arm-watch-check {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(52px, -90px) rotate(64deg); }
+  75% { transform: translate(52px, -90px) rotate(64deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes head-tilt-down {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(7px) rotate(4deg); }
+  75% { transform: translateY(7px) rotate(4deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-arm-watch {
+  animation: arm-watch-check 3.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 132px 290px;
+}
+
+.animate-head-watch {
+  animation: head-tilt-down 3.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: center center;
+}
+
+/* 5. Stealth Crouch */
+@keyframes stealth-crouch-anim {
+  0% { transform: scale(1, 1) translateY(0px); }
+  20% { transform: scale(1.08, 0.82) translateY(35px); }
+  80% { transform: scale(1.08, 0.82) translateY(35px); }
+  100% { transform: scale(1, 1) translateY(0px); }
+}
+
+.animate-stealth-crouch {
+  animation: stealth-crouch-anim 3.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  transform-origin: center bottom;
+}
+
+/* Subtle Secret Agent Steam & Mist Particles */
+@keyframes steam-drift-up-1 {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 0px) scale(0.5);
+  }
+  25% {
+    opacity: 0.55;
+  }
+  65% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-14px, -45px) scale(1.6);
+  }
+}
+
+@keyframes steam-drift-up-2 {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 0px) scale(0.6);
+  }
+  28% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(16px, -50px) scale(1.7);
+  }
+}
+
+@keyframes steam-drift-up-3 {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 0px) scale(0.4);
+  }
+  30% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-6px, -38px) scale(1.4);
+  }
+}
+
+.animate-steam-1 {
+  animation: steam-drift-up-1 2.2s infinite ease-out;
+}
+
+.animate-steam-2 {
+  animation: steam-drift-up-2 2.5s infinite 0.4s ease-out;
+}
+
+.animate-steam-3 {
+  animation: steam-drift-up-3 2.1s infinite 0.8s ease-out;
+}
+
+.animate-steam-fast-1 {
+  animation: steam-drift-up-1 1.6s infinite ease-out;
+}
+
+.animate-steam-fast-2 {
+  animation: steam-drift-up-2 1.8s infinite 0.3s ease-out;
+}
+
+/* Floating Secret Agent Gear Background Drift */
+@keyframes agent-gear-float-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(8deg);
+  }
+}
+
+@keyframes agent-gear-float-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(-12deg);
+  }
+}
+
+@keyframes agent-gear-float-3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-24px) rotate(10deg);
+  }
+}
+
+.animate-gear-float-1 {
+  animation: agent-gear-float-1 12s infinite ease-in-out;
+}
+
+.animate-gear-float-2 {
+  animation: agent-gear-float-2 16s infinite ease-in-out;
+}
+
+.animate-gear-float-3 {
+  animation: agent-gear-float-3 14s infinite ease-in-out;
+}
+
+/* ================= SPECIFIC 2-MINUTE MOVEMENTS ================= */
+
+/* 1. Stretch Arms */
+@keyframes arm-stretch-left {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-28px, -110px) rotate(145deg); }
+  75% { transform: translate(-28px, -110px) rotate(145deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes arm-stretch-right {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(28px, -110px) rotate(-145deg); }
+  75% { transform: translate(28px, -110px) rotate(-145deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes body-stretch-arch {
+  0% { transform: scale(1, 1); }
+  25% { transform: scale(0.96, 1.05) translateY(-8px); }
+  75% { transform: scale(0.96, 1.05) translateY(-8px); }
+  100% { transform: scale(1, 1); }
+}
+
+.animate-arm-stretch-l {
+  animation: arm-stretch-left 4.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 132px 290px;
+}
+
+.animate-arm-stretch-r {
+  animation: arm-stretch-right 4.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 296px 290px;
+}
+
+.animate-body-stretch {
+  animation: body-stretch-arch 4.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: center bottom;
+}
+
+/* 2. Sharpen Pencil */
+@keyframes sharpen-twirl-motion {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(18deg); }
+  50% { transform: rotate(-14deg); }
+  75% { transform: rotate(18deg); }
+}
+
+.animate-sharpen-twirl {
+  animation: sharpen-twirl-motion 0.45s infinite ease-in-out;
+  transform-origin: 214px 260px;
+}
+
+/* 3. Meditate (5 Seconds Zen) */
+@keyframes zen-breathe-5s {
+  0% { transform: scale(1, 1); }
+  35% { transform: scale(1.03, 1.02) translateY(-4px); }
+  70% { transform: scale(1.03, 1.02) translateY(-4px); }
+  100% { transform: scale(1, 1); }
+}
+
+@keyframes zen-aura-glow {
+  0%, 100% { opacity: 0; transform: scale(0.92); }
+  25%, 80% { opacity: 0.75; transform: scale(1.18); }
+}
+
+.animate-zen-breathe {
+  animation: zen-breathe-5s 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: center bottom;
+}
+
+.animate-zen-aura {
+  animation: zen-aura-glow 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: 214px 280px;
+}
+
+/* 4. Drink Water */
+@keyframes drink-arm-cup {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  15% { transform: translate(-30px, -65px) rotate(-15deg); opacity: 1; }
+  35% { transform: translate(-45px, -80px) rotate(-35deg); opacity: 1; }
+  70% { transform: translate(-45px, -80px) rotate(-35deg); opacity: 1; }
+  85% { transform: translate(-30px, -65px) rotate(-15deg); opacity: 1; }
+  100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+}
+
+@keyframes drink-head-back {
+  0% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-7px) rotate(-7deg); }
+  70% { transform: translateY(-7px) rotate(-7deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.animate-drink-arm {
+  animation: drink-arm-cup 4.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 296px 290px;
+}
+
+.animate-drink-head {
+  animation: drink-head-back 4.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: center center;
+}
+
+/* 5. Walk Left & Right */
+@keyframes walk-pacing {
+  0% { transform: translateX(0px); }
+  20% { transform: translateX(-38px); }
+  45% { transform: translateX(-38px); }
+  65% { transform: translateX(38px); }
+  85% { transform: translateX(38px); }
+  100% { transform: translateX(0px); }
+}
+
+.animate-walk-around {
+  animation: walk-pacing 5.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: center bottom;
+}
+
+/* 6. Check Clock */
+@keyframes clock-look-up-motion {
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(-6deg); }
+  75% { transform: translateY(-10px) rotate(-6deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes clock-point-arm-motion {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(25px, -110px) rotate(-75deg); }
+  75% { transform: translate(25px, -110px) rotate(-75deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-clock-head {
+  animation: clock-look-up-motion 4.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: center center;
+}
+
+.animate-clock-arm {
+  animation: clock-point-arm-motion 4.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 296px 290px;
+}
+
+/* 7. Check Notebook */
+@keyframes notebook-inspect-arm {
+  0% { transform: translate(0, 0); opacity: 0; }
+  15% { transform: translate(-10px, -40px); opacity: 1; }
+  80% { transform: translate(-10px, -40px); opacity: 1; }
+  100% { transform: translate(0, 0); opacity: 0; }
+}
+
+@keyframes notebook-page-anim {
+  0%, 25% { transform: scaleX(1); }
+  50% { transform: scaleX(0.08); }
+  75%, 100% { transform: scaleX(1); }
+}
+
+.animate-notebook-arm {
+  animation: notebook-inspect-arm 4.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  transform-origin: 214px 290px;
+}
+
+.animate-notebook-page {
+  animation: notebook-page-anim 4.8s ease-in-out forwards;
+  transform-origin: 214px 260px;
+}
+
+

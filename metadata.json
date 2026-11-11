@@ -1,0 +1,6 @@
+{
+  "name": "Perry Break Time - Animated Platypus",
+  "description": "Iconic animated Platypus with signature rapid beak chatter, shifting eyes, synced audio clicks, and Break Time message.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
